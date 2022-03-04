@@ -1,9 +1,3 @@
-let positionName = null
-function sucess(position){
-    console.log(position);
-    return position;
-}
-
 function errorCallback(PositionError){
     
     let locationName = prompt("Digite o nome da cidade:");
