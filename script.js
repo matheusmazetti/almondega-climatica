@@ -29,7 +29,7 @@ function weatherSucess(weatherCondition){
     <h1>${weatherCondition.data.main.temp} ºC</h1>
     <h2>${weatherCondition.data.weather[0].description}</h2>
     <h3>${weatherCondition.data.name}<h3>
-    <img src="imagem.jpg" alt="Minha Figura">
+    <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
     </div>
     `
 
