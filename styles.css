@@ -55,17 +55,44 @@ footer button{
     text-align: center;
     color: white;
 }
+main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.secundario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .display {
     height: 50vh;
     width: 30vw;
-    background-color: black;
     color: white;
     margin-top: 64px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 .display h1{
     font-size: 80px;
+}
+
+.display h2{
+    font-size: 30px;
+    margin-right: 30px;
+}
+
+.display h3{
+    font-size: 30px;
 }
 .display img{
     width: 200px;

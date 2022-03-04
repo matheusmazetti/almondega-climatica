@@ -50,10 +50,14 @@ function weatherSucess(weatherCondition){
     let weatherDisplay = document.querySelector("main")
     weatherDisplay.innerHTML = `
     <div class="display">
-    <h1>${weatherCondition.data.main.temp} ºC</h1>
-    <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
-    <h2>${weatherCondition.data.weather[0].description}</h2>
-    <h3>${weatherCondition.data.name}<h3>
+        <div class="principal">
+        <h1>${weatherCondition.data.main.temp} ºC</h1>
+        <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
+        </div>
+        <div class="secundario">
+        <h2>${weatherCondition.data.weather[0].description}</h2>
+        <h3>${weatherCondition.data.name}<h3>
+        </div>
     
     </div>
     `
