@@ -7,11 +7,27 @@ function sucess(position){
 function errorCallback(PositionError){
     
     let locationName = prompt("Digite o nome da cidade:");
-    return locationName;
-
+    getCoordinates(locationName);
+    
 }
 navigator.geolocation.getCurrentPosition(sucess, errorCallback);
 
+<<<<<<< HEAD
+=======
+function getCoordinates(locationName){
+    let promisse = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=f25110b0f83adb9f7c080ee182cd1d00`);
+    promisse.then(locationCoords);
+    promisse.catch(locationError);
+}
+
+function locationCoords(coords){
+    console.log(coords);
+}
+
+function locationError(erro){
+    console.log(erro);
+}
+>>>>>>> c80134b480509f737384299e65f48d9e14a4dc98
 
 function getWeather(position){
     let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&lang=pt_br&appid=f25110b0f83adb9f7c080ee182cd1d00`);
@@ -40,7 +56,7 @@ function weatherSucess(weatherCondition){
     <h1>${weatherCondition.data.main.temp} ºC</h1>
     <h2>${weatherCondition.data.weather[0].description}</h2>
     <h3>${weatherCondition.data.name}<h3>
-    <img src="imagem.jpg" alt="Minha Figura">
+    <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
     </div>
     `
 }
