@@ -1,9 +1,3 @@
-let positionName = null
-function sucess(position){
-    console.log(position);
-    return position;
-}
-
 function errorCallback(PositionError){
     
     let locationName = prompt("Digite o nome da cidade:");
@@ -11,7 +5,6 @@ function errorCallback(PositionError){
     
 }
 navigator.geolocation.getCurrentPosition(sucess, errorCallback);
-
 
 function getCoordinates(locationName){
     let promisse = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=f25110b0f83adb9f7c080ee182cd1d00`);
@@ -21,6 +14,7 @@ function getCoordinates(locationName){
 
 function locationCoords(coords){
     console.log(coords);
+    getWeatherByLocation(coords);
 }
 
 function locationError(erro){
@@ -34,13 +28,18 @@ function getWeather(position){
     promisse.catch(weatherError);
 }
 
+function getWeatherByLocation(coords){
+    let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.data[0].lat}&lon=${coords.data[0].lon}&units=metric&lang=pt_br&appid=f25110b0f83adb9f7c080ee182cd1d00`);
+    promisse.then(weatherSucess);
+    promisse.catch(weatherError);
+}
+
 function sucess(position){
-   
-    getWeather(position);
+   getWeather(position);
 }
 
 function weatherError(errorCode){
-
+    console.log(errorCode);
 }
 
 function weatherSucess(weatherCondition){
@@ -50,11 +49,12 @@ function weatherSucess(weatherCondition){
     changeColor(temperature);
     let weatherDisplay = document.querySelector("main")
     weatherDisplay.innerHTML = `
-    <div>
+    <div class="display">
     <h1>${weatherCondition.data.main.temp} ºC</h1>
+    <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
     <h2>${weatherCondition.data.weather[0].description}</h2>
     <h3>${weatherCondition.data.name}<h3>
-    <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
+    
     </div>
     `
 }
