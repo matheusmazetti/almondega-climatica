@@ -1,0 +1,49 @@
+body{
+    background: #1b98e0;
+    font-family: Roboto;
+}
+
+header{
+    background-color: #13293d;
+    width: 100%;
+    height: 64px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header h1{
+    color: white;
+    font-size: 40px;
+    margin-top: 32px;
+    margin-left: 10px;
+}
+
+header ion-icon{
+    color: white;
+    font-size: 40px;
+}
+
+footer{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer button{
+    width: 200px;
+    height: 60px;
+    border: 0px;
+    border-radius: 50px;
+    background-color: #13293d;
+    text-align: center;
+    color: white;
+}
