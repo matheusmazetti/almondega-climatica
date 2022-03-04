@@ -14,6 +14,7 @@ function getCoordinates(locationName){
 
 function locationCoords(coords){
     console.log(coords);
+    getWeatherByLocation(coords);
 }
 
 function locationError(erro){
@@ -22,6 +23,12 @@ function locationError(erro){
 
 function getWeather(position){
     let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&lang=pt_br&appid=f25110b0f83adb9f7c080ee182cd1d00`);
+    promisse.then(weatherSucess);
+    promisse.catch(weatherError);
+}
+
+function getWeatherByLocation(coords){
+    let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${coords.data[0].lat}&lon=${coords.data[0].lon}&units=metric&lang=pt_br&appid=f25110b0f83adb9f7c080ee182cd1d00`);
     promisse.then(weatherSucess);
     promisse.catch(weatherError);
 }
