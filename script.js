@@ -27,12 +27,11 @@ function getWeather(position){
 }
 
 function sucess(position){
-   
-    getWeather(position);
+   getWeather(position);
 }
 
 function weatherError(errorCode){
-
+    console.log(errorCode);
 }
 
 function weatherSucess(weatherCondition){
