@@ -1,20 +1,26 @@
-let positionName = null
-function sucess(position){
-    console.log(position);
-    return position;
-}
 function errorCallback(PositionError){
     console.log(PositionError);
-    positionName = prompt("Digite o nome da cidade:");
+    let locationName = prompt("Digite o nome da cidade:");
+    return locationName;
+
 }
 navigator.geolocation.getCurrentPosition(sucess, errorCallback);
 
-function getWeather(){
-    let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=f25110b0f83adb9f7c080ee182cd1d00`);
+function getWeather(position){
+    let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=f25110b0f83adb9f7c080ee182cd1d00`);
     promisse.then(weatherSucess);
     promisse.catch(weatherError);
 }
 
+function sucess(position){
+    console.log(position);
+    getWeather(position);
+}
+
 function weatherError(errorCode){
-    
+    console.log(errorCode);
+}
+
+function weatherSucess(weatherCondition){
+    console.log(weatherCondition);
 }
