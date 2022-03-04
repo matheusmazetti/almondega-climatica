@@ -26,6 +26,11 @@ header ion-icon{
     color: white;
     font-size: 40px;
 }
+.loading{
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+}
 
 footer{
     width: 100%;
