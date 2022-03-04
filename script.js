@@ -51,7 +51,7 @@ function weatherSucess(weatherCondition){
     weatherDisplay.innerHTML = `
     <div class="display">
         <div class="principal">
-        <h1>${weatherCondition.data.main.temp} ºC</h1>
+        <h1>${weatherCondition.data.main.temp.toFixed(0)} ºC</h1>
         <img src="http://openweathermap.org/img/wn/${weatherCondition.data.weather[0].icon}@4x.png" alt="clima">
         </div>
         <div class="secundario">
