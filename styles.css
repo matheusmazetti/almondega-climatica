@@ -2,7 +2,10 @@ body{
     background: #1b98e0;
     font-family: Roboto;
 }
-
+main{
+    display: flex;
+    justify-content: center;
+}
 header{
     background-color: #13293d;
     width: 100%;
@@ -51,4 +54,20 @@ footer button{
     background-color: #13293d;
     text-align: center;
     color: white;
+}
+.display {
+    height: 50vh;
+    width: 30vw;
+    background-color: black;
+    color: white;
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+}
+.display h1{
+    font-size: 80px;
+}
+.display img{
+    width: 200px;
+    height: 200px;
 }
