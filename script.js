@@ -12,8 +12,7 @@ function errorCallback(PositionError){
 }
 navigator.geolocation.getCurrentPosition(sucess, errorCallback);
 
-<<<<<<< HEAD
-=======
+
 function getCoordinates(locationName){
     let promisse = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=1&appid=f25110b0f83adb9f7c080ee182cd1d00`);
     promisse.then(locationCoords);
@@ -27,7 +26,6 @@ function locationCoords(coords){
 function locationError(erro){
     console.log(erro);
 }
->>>>>>> c80134b480509f737384299e65f48d9e14a4dc98
 
 function getWeather(position){
     let promisse = axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&lang=pt_br&appid=f25110b0f83adb9f7c080ee182cd1d00`);
@@ -48,7 +46,7 @@ function weatherError(errorCode){
 function weatherSucess(weatherCondition){
     console.log(weatherCondition);
     let temperature = weatherCondition.data.main.temp;
-    console.log(temperature)
+    console.log(temperature);
     changeColor(temperature);
     let weatherDisplay = document.querySelector("main")
     weatherDisplay.innerHTML = `
@@ -63,24 +61,25 @@ function weatherSucess(weatherCondition){
 
 function changeColor(temperature){
     if(temperature > 10){
-        color = '0, 187, 255';
+        color = 'rgb(255, 255, 255)';
     }
     if(temperature > 20){
-        color = '0, 162, 0';
+        color = 'rgb(251, 255, 135)';
     }
     if(temperature > 30){
-        color = '255, 255, 0';
+        color = 'rgb(255, 171, 28)';
     }
     if(temperature > 40){
-        color = '255, 0, 0';
+        color = 'rgb(255, 0, 0)';
     }
     changeBackground(color)
 }
 
 function changeBackground(color){
+    
     let background = document.querySelector('body');
     console.log(background);
-    background.style.backgroundColor = `${color}`;
+    background.style.backgroundColor = color;
 }
 function reload(){
     window.location.reload();
